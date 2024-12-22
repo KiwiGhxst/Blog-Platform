@@ -1,0 +1,125 @@
+.ArticleNew{
+  display: flex;
+  &__addTag{
+    display: flex;
+    gap: 17px;
+    margin-top: 5px;
+  }
+  &__button{
+    border-radius: 4px;
+    padding: 8px 40px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  &__container{
+    width: 938px;
+    margin: 34px auto;
+    background-color: #FFFFFF;
+    padding: 48px 32px;
+    box-sizing: border-box;
+    border: 1px #D9D9D9 solid;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 22px 106px 0 #00000012;
+  }
+  &__form{
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+  }
+  &__input{
+    display: block;
+    height: 40px;
+    box-sizing: border-box;
+    border: 1px solid #D9D9D9;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    &::placeholder{
+      color: #BFBFBF;
+    }
+    &:focus{
+      outline: 1px solid #1890FF;
+    }
+    &_error{
+      border: 1px solid red !important;
+      &:focus{
+        outline: 1.5px solid red !important;
+      }
+    }
+  }
+  &__label{
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    color: #262626;
+  }
+  &__submit{
+    width: 320px;
+    height: 40px;
+    background-color: #1890FF;
+    box-sizing: border-box;
+    margin: 0;
+    border: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: 5px;
+    &:disabled{
+      cursor: default;
+      background-color: grey;
+    }
+  }
+  &__tagInput{
+    width: 300px;
+    box-sizing: border-box;
+    border: 1px solid #D9D9D9;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #000000BF;
+    &::placeholder{
+      color: #BFBFBF;
+    }
+    &:focus{
+      outline: 1px solid #1890FF;
+    }
+    &:disabled{
+      background-color: transparent;
+      color: #000000BF;
+    }
+  }
+  &__textarea{
+    display: block;
+    height: 168px;
+    box-sizing: border-box;
+    border: 1px solid #D9D9D9;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    resize: none;
+    &::placeholder{
+      color: #BFBFBF
+    }
+    &:focus{
+      outline: 1px solid #1890FF
+    }
+  }
+  &__title{
+    margin: 0 auto 21px auto;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 500;
+  }
+}

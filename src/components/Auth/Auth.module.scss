@@ -1,0 +1,139 @@
+.auth{
+  display: flex;
+
+  &__container{
+    width: 384px;
+    margin: 59px auto;
+    background-color: #FFFFFF;
+    padding: 48px 32px;
+    box-sizing: border-box;
+    border: 1px #D9D9D9 solid;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 22px 106px 0 #00000012;
+  }
+
+  &__label{
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    color: #262626;
+  }
+
+  &__checkbox{
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    &Label{
+      color: #595959;
+      cursor: pointer;
+      user-select: none;
+      height: 40px;
+      width: 278px;
+      display: inline-flex;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: 400;
+      margin-top: 9px;
+      &:hover{
+        background-color: #F1FCFF;
+      }
+    }
+  }
+
+  &__customCheckbox{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 16px !important;
+    height: 16px;
+    border: 1px solid #9ABBCE;
+    border-radius: 2px;
+    margin: 3px 8px auto 0;
+    flex-shrink: 0;
+    input:hover + &{
+      border: 1px #2196F3 solid;
+    }
+    input:checked + &{
+      border: 1px #2196F3 solid;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.5" y="0.5" width="15" height="15" rx="1.5" fill="%231890FF" stroke="%231890FF"/><path d="M3.91308 7.03516H3.91326C3.99256 7.03525 4.07081 7.05331 4.14213 7.08798C4.21341 7.12262 4.27591 7.17295 4.32497 7.2352L3.91308 7.03516ZM3.91308 7.03516H3.09394C2.89031 7.03516 2.7766 7.26975 2.90232 7.4292L2.90237 7.42927L6.11214 11.4957L6.11218 11.4957C6.32247 11.7619 6.72568 11.7611 6.93667 11.4962L6.93708 11.4957L12.6597 4.24398C12.6598 4.24378 12.66 4.24358 12.6602 4.24338C12.7884 4.08295 12.6699 3.85 12.4689 3.85H11.6498C11.4894 3.85 11.3367 3.9235 11.2376 4.05044C11.2375 4.05055 11.2374 4.05066 11.2373 4.05077L6.52403 10.0216M3.91308 7.03516L6.52403 10.0216M6.52403 10.0216L4.32506 7.23531L6.52403 10.0216Z" fill="white" stroke="white" stroke-width="0.3"/></svg>');
+    }
+  }
+
+  &__errorMessage{
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    color: #F5222D;
+  }
+
+  &__form{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__input{
+    display: block;
+    height: 40px;
+    box-sizing: border-box;
+    border: 1px solid #D9D9D9;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    &::placeholder{
+      color: #BFBFBF
+    }
+    &:focus{
+      outline: 1px solid #1890FF
+    }
+    &_error{
+      border: 1px solid red !important;
+      &:focus{
+        outline: 1.5px solid red !important;
+      }
+    }
+  }
+
+  &__link{
+    border: none;
+    background-color: #FFFFFF;
+    color: #1890FF;
+    cursor: pointer;
+  }
+  &__submit{
+    color: #FFFFFF;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    background-color: #1890FF;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    margin-top: 9px;
+    &:disabled{
+      cursor: default;
+      background-color: grey;
+    }
+  }
+  &__text{
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    color: #8C8C8C;
+    margin: 8px 0 0 0;
+  }
+  &__title{
+    margin: 0 auto 21px auto;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 500;
+  }
+}

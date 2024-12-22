@@ -1,0 +1,59 @@
+.header{
+  background-color: #FFFFFF;
+  &__avatar{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    margin: 0 8px 0 13px;
+    object-fit: cover;
+    filter: blur(0.4px);
+  }
+  &__button{
+    border-radius: 5px;
+    margin: auto 0 auto 19px;
+  }
+  &__container{
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    height: 80px;
+    align-items: center;
+    padding: 0 22px;
+  }
+  &__link{
+    text-decoration: none;
+    margin: 0 auto 0 0;
+    color: #000000D9;
+  }
+  &__name{
+    display: inline-block;
+    margin: auto 0 auto 27px;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+    color: #000000D9;
+  }
+  &__title{
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+  }
+  &__user{
+    display: inline-flex;
+    cursor: pointer;
+    transition: opacity 0.3s, transform 0.3s;
+    user-select: none;
+    border: none;
+    background-color: #FFFFFF;
+    &:hover{
+      opacity: 0.8;
+    }
+    &:active{
+      transform: scale(0.98);
+    }
+    &Info{
+      display: flex
+    }
+  }
+}
