@@ -1,3 +1,5 @@
+import { notification } from 'antd';
+
 class ApiService {
   static baseUrl = 'https://blog-platform.kata.academy';
 
@@ -26,15 +28,39 @@ class ApiService {
   static async registration(user) {
     const { username, email, password } = user;
     const url = new URL('/api/users', this.baseUrl);
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: this.getHeaders(),
-      body: JSON.stringify({ user: { username, email, password } }),
-    });
 
-    const newUser = await this.handleResponse(response);
-    localStorage.setItem('jwt', newUser.user.token);
-    return newUser;
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: this.getHeaders(),
+        body: JSON.stringify({ user: { username, email, password } }),
+      });
+
+      const newUser = await this.handleResponse(response);
+      localStorage.setItem('jwt', newUser.user.token);
+      return newUser;
+    } catch (error) {
+      if (error.errors) {
+        if (error.errors.username) {
+          notification.error({
+            message: 'Registration Error',
+            description: `Username: ${error.errors.username}`,
+          });
+        }
+        if (error.errors.email) {
+          notification.error({
+            message: 'Registration Error',
+            description: `Email: ${error.errors.email}`,
+          });
+        }
+      } else {
+        notification.error({
+          message: 'Registration Error',
+          description: 'An unknown error occurred during registration.',
+        });
+      }
+      throw error;
+    }
   }
 
   static async login(user) {

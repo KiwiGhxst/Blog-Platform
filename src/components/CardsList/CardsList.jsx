@@ -4,7 +4,7 @@ import { ConfigProvider, Pagination } from 'antd';
 import Card from '../Card/Card';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { fetchArticles } from '../../store/blogSlice';
-import { PaginationConfig } from '../../utils/AntdConfig';
+import { PaginationConfig } from '../../constants/AntdConfig';
 
 import styles from './CardsList.module.scss';
 

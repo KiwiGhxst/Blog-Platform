@@ -6,8 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import { Avatar, Button, ConfigProvider, Popconfirm } from 'antd';
 
 import { useAppSelector } from '../../hooks/hooks';
-import { SugnUpButtonConfig } from '../../utils/AntdConfig';
+import { SugnUpButtonConfig } from '../../constants/AntdConfig';
 import ApiService from '../../utils/ApiService';
+import avatarFallback from '../../assets/img/avatar.png';
 
 import styles from './Card.module.scss';
 
@@ -15,7 +16,12 @@ const Card = ({ data, type }) => {
   const navigate = useNavigate();
   const [like, setLike] = useState(data.favorited);
   const [count, setCount] = useState(data.favoritesCount);
-  const [avatarUrl, setAvatarUrl] = useState(data.author.image || './img/avatar.png');
+
+  const isValidImage = (url) => url && url.startsWith('http');
+  const initialAvatar = isValidImage(data.author.image) ? data.author.image : avatarFallback;
+
+  const [avatarUrl, setAvatarUrl] = useState(initialAvatar);
+
   const { loggedIn } = useAppSelector((store) => store.blog);
   const username = useAppSelector((store) => store.blog.user?.user.username);
 
@@ -58,11 +64,7 @@ const Card = ({ data, type }) => {
         <div>
           <div className={styles.card__articleLikeContainer}>
             <p className={styles.card__title}>{data.title}</p>
-            <label
-              className={styles.card__like}
-              htmlFor={data.slug}
-              onClick={(e) => e.stopPropagation()} // Предотвращаем всплытие события
-            >
+            <label className={styles.card__like} htmlFor={data.slug} onClick={(e) => e.stopPropagation()}>
               <input
                 className={styles.card__checkbox}
                 type="checkbox"
@@ -94,7 +96,7 @@ const Card = ({ data, type }) => {
           src={avatarUrl}
           className={styles.card__avatar}
           alt="avatar"
-          onError={() => setAvatarUrl('./img/avatar.png')}
+          onError={() => setAvatarUrl(avatarFallback)}
         />
       </div>
       <div className={styles.card__descriptionContainer}>

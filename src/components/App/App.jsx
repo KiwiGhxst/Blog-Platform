@@ -11,6 +11,7 @@ import PrivateRoute from '../PrivateRoute/PrivateRoute';
 import { fetchGetUserInfo, logOut } from '../../store/blogSlice';
 import EditProfile from '../EditProfile/EditProfile';
 import NewArticle from '../Article-new/ArticleNew';
+import { PATHS } from '../../constants/paths';
 
 const App = () => {
   const auth = useAppSelector((store) => store.blog.loggedIn);
@@ -29,14 +30,14 @@ const App = () => {
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<CardsList />} />
-        <Route path="/articles" element={<CardsList />} />
-        <Route path="/articles/:slug" element={<Article />} />
-        <Route path="/articles/:slug/edit" element={<PrivateRoute auth={auth} element={<NewArticle edit />} />} />
-        <Route path="/sign-in" element={<Login />} />
-        <Route path="/sign-up" element={<Register />} />
-        <Route path="/profile" element={<PrivateRoute auth={auth} element={<EditProfile />} />} />
-        <Route path="/new-article" element={<PrivateRoute auth={auth} element={<NewArticle />} />} />
+        <Route path={PATHS.HOME} element={<CardsList />} />
+        <Route path={PATHS.ARTICLES} element={<CardsList />} />
+        <Route path={PATHS.ARTICLE_DETAIL} element={<Article />} />
+        <Route path={PATHS.ARTICLE_EDIT} element={<PrivateRoute auth={auth} element={<NewArticle edit />} />} />
+        <Route path={PATHS.SIGN_IN} element={<Login />} />
+        <Route path={PATHS.SIGN_UP} element={<Register />} />
+        <Route path={PATHS.PROFILE} element={<PrivateRoute auth={auth} element={<EditProfile />} />} />
+        <Route path={PATHS.NEW_ARTICLE} element={<PrivateRoute auth={auth} element={<NewArticle />} />} />
       </Routes>
     </>
   );

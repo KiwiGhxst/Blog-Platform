@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Spin, message } from 'antd';
+import { Spin, notification } from 'antd';
 
 import Card from '../Card/Card';
 import ApiService from '../../utils/ApiService';
@@ -23,8 +23,10 @@ const Article = () => {
         const res = await ApiService.getArticle(slug);
         setArticle(res.article);
       } catch {
-        setError('Article not found or an error occurred');
-        message.error('Failed to load article');
+        notification.error({
+          message: 'Article Error',
+          description: 'Article not found or an error occurred',
+        });
       } finally {
         setLoading(false);
       }

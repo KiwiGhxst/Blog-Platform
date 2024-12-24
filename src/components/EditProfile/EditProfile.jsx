@@ -5,6 +5,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import Auth from '../Auth/Auth';
 import { fetchEditProfile } from '../../store/blogSlice';
+import { editProfileFields } from '../../constants/formFields';
 import styles from '../Auth/Auth.module.scss';
 
 const EditProfile = () => {
@@ -46,57 +47,10 @@ const EditProfile = () => {
     }
   }, [error, submit, setError, navigate]);
 
-  const fields = [
-    {
-      name: 'username',
-      label: 'Username',
-      placeholder: 'Username',
-      validation: {
-        required: 'Username is required',
-        minLength: { value: 3, message: 'Must be at least 3 characters' },
-        maxLength: { value: 20, message: 'Cannot exceed 20 characters' },
-      },
-    },
-    {
-      name: 'email',
-      label: 'Email address',
-      placeholder: 'Email address',
-      type: 'email',
-      validation: {
-        required: 'Email is required',
-        pattern: {
-          value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-          message: 'Invalid email address',
-        },
-      },
-    },
-    {
-      name: 'password',
-      label: 'New password',
-      placeholder: 'Password',
-      type: 'password',
-      validation: {
-        validate: (value) => value.length === 0 || value.length >= 6 || 'Password must be at least 6 characters',
-        maxLength: { value: 40, message: 'Cannot exceed 40 characters' },
-      },
-    },
-    {
-      name: 'image',
-      label: 'Avatar image (url)',
-      placeholder: 'Avatar image',
-      validation: {
-        pattern: {
-          value: /^(https?:\/\/[^\s]+)$/,
-          message: 'Please enter a valid URL',
-        },
-      },
-    },
-  ];
-
   return (
     <Auth title="Edit Profile">
       <form className={styles.auth__form} onSubmit={handleSubmit(onSubmit)}>
-        {fields.map(({ name, label, placeholder, validation }) => (
+        {editProfileFields.map(({ name, label, placeholder, validation }) => (
           <label key={name} htmlFor={name} className={styles.auth__label}>
             {label}
             <input

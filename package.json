@@ -7,6 +7,7 @@
     "antd": "^5.21.5",
     "date-fns": "^4.1.0",
     "inter-ui": "^4.0.2",
+    "normalize-scss": "^8.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.53.1",
